@@ -14,11 +14,17 @@ class Concentration {
     private(set) var score = 0
     private var seenCards: Set<Int> = []
     
+    private var dateClick: Date?
+    private var timePenalty: Int {
+        return min(dateClick?.sinceNow ?? 0, Points.maxTimePenalty)
+    }
+    
     private(set) var flipCount = 0
     
     struct Points {
-        static let matchBonus = 2
-        static let missMatchPenalty = 1
+        static let matchBonus = 20
+        static let missMatchPenalty = 5
+        static let maxTimePenalty = 10
     }
     
     private var indexOfOnlyFaceUpCard: Int? {
@@ -43,7 +49,6 @@ class Concentration {
     func chooseCard(at index: Int) {
         assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index)) : Choosen index out of range")
         if !cards[index].isMatched {
-             flipCount += 1
             if let matchIndex = indexOfOnlyFaceUpCard, matchIndex != index {
                 if cards[matchIndex].identifier == cards[index].identifier {
                     // cards match
@@ -63,10 +68,13 @@ class Concentration {
                     seenCards.insert(index)
                     seenCards.insert(matchIndex)
                 }
+                score -= timePenalty
                 cards[index].isFaceUp = true
             } else {
                 indexOfOnlyFaceUpCard = index
             }
+            flipCount += 1
+            dateClick = Date()
         }
     }
     
@@ -88,5 +96,11 @@ class Concentration {
         flipCount = 0
         score = 0
         cards.shuffle()
+    }
+}
+
+extension Date {
+    var sinceNow: Int {
+        return -Int(self.timeIntervalSinceNow)
     }
 }

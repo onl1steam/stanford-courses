@@ -19,10 +19,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mvy-FB-JCH">
-                                <rect key="frame" x="16" y="44" width="343" height="392"/>
+                                <rect key="frame" x="16" y="44" width="343" height="472"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MRQ-yk-PPx">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCK-ug-ZLu">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="72"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MRQ-yk-PPx">
+                                        <rect key="frame" x="0.0" y="80" width="343" height="72"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oc-KN-uFQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="79.666666666666671" height="72"/>
@@ -59,7 +65,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kah-rM-9hH">
-                                        <rect key="frame" x="0.0" y="80" width="343" height="72"/>
+                                        <rect key="frame" x="0.0" y="160" width="343" height="72"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOr-UJ-arf">
                                                 <rect key="frame" x="0.0" y="0.0" width="79.666666666666671" height="72"/>
@@ -96,7 +102,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PzX-cK-bzd">
-                                        <rect key="frame" x="0.0" y="160" width="343" height="72"/>
+                                        <rect key="frame" x="0.0" y="240" width="343" height="72"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reG-oH-zZu">
                                                 <rect key="frame" x="0.0" y="0.0" width="79.666666666666671" height="72"/>
@@ -133,7 +139,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ILj-iP-lcA">
-                                        <rect key="frame" x="0.0" y="240" width="343" height="72"/>
+                                        <rect key="frame" x="0.0" y="320" width="343" height="72"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypW-KE-y9d">
                                                 <rect key="frame" x="0.0" y="0.0" width="79.666666666666671" height="72"/>
@@ -170,7 +176,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ipu-Bx-RmD">
-                                        <rect key="frame" x="0.0" y="320" width="343" height="72"/>
+                                        <rect key="frame" x="0.0" y="400" width="343" height="72"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faQ-ts-eDv">
                                                 <rect key="frame" x="0.0" y="0.0" width="79.666666666666671" height="72"/>
@@ -250,7 +256,9 @@
                     </view>
                     <connections>
                         <outlet property="flipCountLabel" destination="oEB-2f-c3Z" id="eON-wD-i74"/>
+                        <outlet property="newGameButton" destination="wCq-E8-Hao" id="grN-0W-FDi"/>
                         <outlet property="scoreLabel" destination="Ff2-qZ-c33" id="6aG-Bl-ZEI"/>
+                        <outlet property="titleLabel" destination="FCK-ug-ZLu" id="9mH-YI-8LW"/>
                         <outletCollection property="cardButtons" destination="6oc-KN-uFQ" collectionClass="NSMutableArray" id="cfc-q7-28Q"/>
                         <outletCollection property="cardButtons" destination="hxT-Qh-Vrc" collectionClass="NSMutableArray" id="BaW-2U-5wf"/>
                         <outletCollection property="cardButtons" destination="Jl5-fI-xVO" collectionClass="NSMutableArray" id="aj4-Hs-wGs"/>
