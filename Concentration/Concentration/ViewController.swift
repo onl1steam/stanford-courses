@@ -75,7 +75,7 @@ class ViewController: UIViewController {
     
     private var indexTheme = 0 {
         didSet {
-            emoji = [Int: String]()
+            emoji = [Card: String]()
             titleLabel.text = emojiThemes[indexTheme].name
             
             emojiChoices = emojiThemes[indexTheme].emojis
@@ -86,7 +86,7 @@ class ViewController: UIViewController {
         }
     }
     
-    private var emoji = [Int: String]()
+    private var emoji = [Card: String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,10 +120,10 @@ class ViewController: UIViewController {
     }
 
     private func emoji(for card: Card) -> String {
-        if emoji[card.identifier] == nil, emojiChoices.count > 0 {
-            emoji[card.identifier] = emojiChoices.remove(at: Int.random(in: 0..<emojiChoices.count))
+        if emoji[card] == nil, emojiChoices.count > 0 {
+            emoji[card] = emojiChoices.remove(at: Int.random(in: 0..<emojiChoices.count))
         }
-        return emoji[card.identifier] ?? "?"
+        return emoji[card] ?? "?"
     }
     
     @IBAction func newGame(_ sender: Any) {
