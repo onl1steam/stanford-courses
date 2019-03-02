@@ -10,6 +10,7 @@
 		9203AFEB222720C5004F76A3 /* SetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203AFEA222720C5004F76A3 /* SetCard.swift */; };
 		9203AFED2227251A004F76A3 /* SetCardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203AFEC2227251A004F76A3 /* SetCardDeck.swift */; };
 		9203AFEF222727E1004F76A3 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203AFEE222727E1004F76A3 /* SetGame.swift */; };
+		92691070222B03B800FFED85 /* SetCardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9269106F222B03B800FFED85 /* SetCardButton.swift */; };
 		92FD72C72225B04D0063E3B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD72C62225B04D0063E3B2 /* AppDelegate.swift */; };
 		92FD72C92225B04D0063E3B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD72C82225B04D0063E3B2 /* ViewController.swift */; };
 		92FD72CC2225B04D0063E3B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92FD72CA2225B04D0063E3B2 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 		9203AFEA222720C5004F76A3 /* SetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCard.swift; sourceTree = "<group>"; };
 		9203AFEC2227251A004F76A3 /* SetCardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardDeck.swift; sourceTree = "<group>"; };
 		9203AFEE222727E1004F76A3 /* SetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
+		9269106F222B03B800FFED85 /* SetCardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardButton.swift; sourceTree = "<group>"; };
 		92FD72C32225B04D0063E3B2 /* Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92FD72C62225B04D0063E3B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92FD72C82225B04D0063E3B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +45,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92691072222B098200FFED85 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				92FD72C82225B04D0063E3B2 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		92691073222B099B00FFED85 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9203AFEA222720C5004F76A3 /* SetCard.swift */,
+				9203AFEC2227251A004F76A3 /* SetCardDeck.swift */,
+				9203AFEE222727E1004F76A3 /* SetGame.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		92691074222B09A400FFED85 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9269106F222B03B800FFED85 /* SetCardButton.swift */,
+				92FD72D92225D37C0063E3B2 /* BorderButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		92FD72BA2225B04D0063E3B2 = {
 			isa = PBXGroup;
 			children = (
@@ -63,12 +92,10 @@
 			isa = PBXGroup;
 			children = (
 				92FD72D82225C3C40063E3B2 /* Supporting Files */,
-				92FD72C82225B04D0063E3B2 /* ViewController.swift */,
-				9203AFEA222720C5004F76A3 /* SetCard.swift */,
-				9203AFEC2227251A004F76A3 /* SetCardDeck.swift */,
-				9203AFEE222727E1004F76A3 /* SetGame.swift */,
+				92691072222B098200FFED85 /* Controller */,
+				92691073222B099B00FFED85 /* Model */,
+				92691074222B09A400FFED85 /* View */,
 				92FD72CA2225B04D0063E3B2 /* Main.storyboard */,
-				92FD72D92225D37C0063E3B2 /* BorderButton.swift */,
 				92FD72CD2225B04F0063E3B2 /* Assets.xcassets */,
 				92FD72D22225B04F0063E3B2 /* Info.plist */,
 			);
@@ -160,6 +187,7 @@
 				92FD72C72225B04D0063E3B2 /* AppDelegate.swift in Sources */,
 				9203AFEB222720C5004F76A3 /* SetCard.swift in Sources */,
 				9203AFEF222727E1004F76A3 /* SetGame.swift in Sources */,
+				92691070222B03B800FFED85 /* SetCardButton.swift in Sources */,
 				92FD72DA2225D37C0063E3B2 /* BorderButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
