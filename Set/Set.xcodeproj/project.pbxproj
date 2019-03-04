@@ -12,7 +12,7 @@
 		9203AFEF222727E1004F76A3 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203AFEE222727E1004F76A3 /* SetGame.swift */; };
 		92691070222B03B800FFED85 /* SetCardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9269106F222B03B800FFED85 /* SetCardButton.swift */; };
 		92FD72C72225B04D0063E3B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD72C62225B04D0063E3B2 /* AppDelegate.swift */; };
-		92FD72C92225B04D0063E3B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD72C82225B04D0063E3B2 /* ViewController.swift */; };
+		92FD72C92225B04D0063E3B2 /* SetGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD72C82225B04D0063E3B2 /* SetGameViewController.swift */; };
 		92FD72CC2225B04D0063E3B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92FD72CA2225B04D0063E3B2 /* Main.storyboard */; };
 		92FD72CE2225B04F0063E3B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92FD72CD2225B04F0063E3B2 /* Assets.xcassets */; };
 		92FD72D12225B04F0063E3B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92FD72CF2225B04F0063E3B2 /* LaunchScreen.storyboard */; };
@@ -26,7 +26,7 @@
 		9269106F222B03B800FFED85 /* SetCardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardButton.swift; sourceTree = "<group>"; };
 		92FD72C32225B04D0063E3B2 /* Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92FD72C62225B04D0063E3B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		92FD72C82225B04D0063E3B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		92FD72C82225B04D0063E3B2 /* SetGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameViewController.swift; sourceTree = "<group>"; };
 		92FD72CB2225B04D0063E3B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		92FD72CD2225B04F0063E3B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92FD72D02225B04F0063E3B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		92691072222B098200FFED85 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				92FD72C82225B04D0063E3B2 /* ViewController.swift */,
+				92FD72C82225B04D0063E3B2 /* SetGameViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -183,7 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9203AFED2227251A004F76A3 /* SetCardDeck.swift in Sources */,
-				92FD72C92225B04D0063E3B2 /* ViewController.swift in Sources */,
+				92FD72C92225B04D0063E3B2 /* SetGameViewController.swift in Sources */,
 				92FD72C72225B04D0063E3B2 /* AppDelegate.swift in Sources */,
 				9203AFEB222720C5004F76A3 /* SetCard.swift in Sources */,
 				9203AFEF222727E1004F76A3 /* SetGame.swift in Sources */,

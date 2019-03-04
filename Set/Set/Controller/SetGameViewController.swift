@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SetGameViewController: UIViewController {
     
     private var game = SetGame()
     
@@ -59,13 +59,18 @@ class ViewController: UIViewController {
     
     @IBAction func deal3() {
         if (game.cardsOnTable.count + 3) <= cardButtons.count {
+            currentPlayer = .me
             game.deal3()
             updateViewFromModel()
+            timer1?.invalidate()
         }
     }
     
     @IBAction func newGame() {
+        timer?.invalidate()
+        timer1?.invalidate()
         game = SetGame()
+        currentPlayer = Player.me
         cardButtons.forEach { $0.setCard = nil }
         updateViewFromModel()
     }
@@ -94,11 +99,12 @@ class ViewController: UIViewController {
     
     @IBAction func touchCard(_ sender: SetCardButton) {
         timer1?.invalidate()
+        currentPlayer = .me
         if let cardNumber = cardButtons.index(of: sender) {
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
             if let itIsSet = game.isSet, itIsSet {
-                // TryiPhone()
+                TryiPhone()
             }
         } else {
             print("Choosen card was not in cardButtons")
@@ -109,7 +115,43 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         updateViewFromModel()
     }
-
+    
+    private func TryiPhone() {
+        // TryiPhone
+        iPhoneLabel.text = "  🤔  "
+        iPhoneLabel.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        timer1 = Timer.scheduledTimer(withTimeInterval: Constants.iPhoneWaitTime, repeats: false){
+            [weak self] time in
+            
+            self?.currentPlayer = .iPhone
+            self?.iPhoneLabel.text = "  😀  "
+            self?.iPhoneLabel.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
+            
+            // neutralize Set from .me
+            self?.neutralizationSet()
+            
+            // remove selected cards
+            self?.removeSelectedCards()
+            
+            // flip a coin with probability 2/3
+            if Int.randomNumber(probabilities: [1, 2]) == 1 {
+                // success hint set
+                self?.selectHintSet()
+            } else {
+                // fail random set
+                self?.selectRandomSet()
+            }
+            
+            self?.updateViewFromModel()
+            if let itIsSet = self?.game.isSet {
+                self?.iPhoneLabel.text = itIsSet ? "  😂!!!" : "  😥..."
+            } else {
+                self?.iPhoneLabel.text = "🤢 No Sets at all."
+            }
+            
+        }
+    }
+    
     private func updateButtonsFromModel() {
         messageLabel.text = ""
         messageIPhoneLabel.text = ""
@@ -127,7 +169,12 @@ class ViewController: UIViewController {
                     if game.cardsTryMatched.contains(card) {
                         button.setBorderColor(color: itIsSet ? Colors.matched : Colors.misMatched)
                     }
-                    messageLabel.text = itIsSet ? "Match!" : "Miss!"
+                    switch(currentPlayer) {
+                    case .me :
+                        messageLabel.text = itIsSet ? "Match!" : "Miss!"
+                    case .iPhone:
+                        messageIPhoneLabel.text = itIsSet ? "OK!!!" : "NO..."
+                    }
                 }
                 
             } else {
@@ -147,14 +194,55 @@ class ViewController: UIViewController {
         dealButton.disable = (game.cardsOnTable.count) >= cardButtons.count || game.deckCount == 0
         hintButton.disable = game.hints.count == 0
     }
-
+    
     private func updateHintButton() {
         hintButton.setTitle("\(game.hints.count) sets", for: .normal)
         _lastHint = 0
     }
+    
+    // MARK: Actions for iPhone
+    // neutralize Set from .me
+    private func neutralizationSet() {
+        var cardsOnTable = game.cardsOnTable
+        cardsOnTable.remove(elements: game.cardsTryMatched)
+        let randomCard = cardsOnTable [Int.random(in: 0..<cardsOnTable.count)]
+        if let randomIndex = game.cardsOnTable.index(of: randomCard) {
+            game.chooseCard(at: randomIndex)
+        }
+        
+    }
+    
+    // remove selected cards
+    private func removeSelectedCards() {
+        game.cardsSelected.forEach { card in
+            if let idx = game.cardsOnTable.index(of: card) {
+                game.chooseCard(at: idx)
+            }
+        }
+    }
+    
+    // success hint set
+    private func selectHintSet() {
+        if game.hints.count > 0 {
+            game.hints[0].forEach { idx in
+                game.chooseCard(at: idx)
+            }
+        }
+    }
+    
+    // fail random set
+    private func selectRandomSet() {
+        var cardsOnTable = game.cardsOnTable
+        cardsOnTable.shuffle()
+        for index in 0..<3 {
+            if let idx = game.cardsOnTable.index(of: cardsOnTable[index]) {
+                game.chooseCard(at: idx)
+            }
+        }
+    }
 }
 
-extension ViewController {
+extension SetGameViewController {
     // Constants
     
     private struct Colors {
@@ -166,11 +254,29 @@ extension ViewController {
     
     private struct Constants {
         static let flashTime = 1.5
+        static let iPhoneWaitTime = 2.0
     }
 }
 
 extension Int {
     func incrementCicle(in number: Int) -> Int {
         return (number - 1) > self ? self + 1 : 0
+    }
+    
+    static func randomNumber(probabilities: [Int]) -> Int {
+        
+        // Sum of all probabilities
+        let sum = probabilities.reduce(0, +)
+        // Random number in the range 0.0 <= rnd < sum
+        let rnd = Int.random(in: 0..<sum)
+        // Find the first interval of accumulated probabilities into which 'rnd' fails
+        var accum = 0
+        for (i, p) in probabilities.enumerated() {
+            accum += p
+            if rnd < accum {
+                return i
+            }
+        }
+        return (probabilities.count - 1)
     }
 }
